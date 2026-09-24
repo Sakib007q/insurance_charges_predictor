@@ -1,9 +1,7 @@
 # Insurance Charge Predictor — Flask App
 
 Deployable Flask app for the insurance charges regression models from your notebook.
-## 1. Add your model files
-
-## Project structure
+## 1. Project structure
 ```
 insurance_app/
 ├── app.py
