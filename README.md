@@ -1,6 +1,7 @@
 # Insurance Charge Predictor — Flask App
 
 Deployable Flask app for the insurance charges regression models from your notebook.
+## 1. Add your model files
 
 ## Project structure
 ```
@@ -15,25 +16,6 @@ insurance_app/
     ├── decision_tree_model.pkl
     └── random_forest_model.pkl
 ```
-
-## 1. Add your model files
-Copy the `.pkl` files your notebook already saves via `joblib.dump(...)` into `models/`:
-- `linear_regression_model.pkl`
-- `decision_tree_model.pkl`
-- `random_forest_model.pkl`
-
-Each file must be the **full pipeline** (`preprocessor` + model), exactly as your
-notebook's "Saving model" cell does — the app calls `pipeline.predict(row)` directly
-on raw columns (`age, sex, bmi, children, smoker, region`), so the preprocessing
-(OneHotEncoder + StandardScaler) must already be baked into the pickle.
-
-The app auto-detects which of the three files are present; the dropdown in the UI
-disables any model whose file is missing, so you can deploy with just one model if
-you prefer.
-
-⚠️ **scikit-learn version**: pickle files are sensitive to the scikit-learn version
-used to create them. Set the same version in `requirements.txt` as the one in your
-notebook environment to avoid unpickling errors (check with `import sklearn; sklearn.__version__`).
 
 ## 2. Run locally
 ```bash
